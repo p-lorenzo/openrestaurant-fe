@@ -3,14 +3,13 @@ import axios from "axios";
 import MenuSection from "./MenuSection";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "../logo.svg";
-
-const baseURL = "http://127.0.0.1:8000/api/menu/active";
+import env from "react-dotenv";
 
 export default function Menu() {
     const [sections, setSections] = React.useState(null);
 
     React.useEffect(() => {
-        axios.get(baseURL).then((response) => {
+        axios.get(env.API_URL + "/api/menu/active").then((response) => {
             setSections(response.data.sections);
         });
     }, []);
