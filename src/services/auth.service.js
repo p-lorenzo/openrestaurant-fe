@@ -2,7 +2,7 @@ import axios from "axios";
 import env from "react-dotenv";
 
 const register = (email, password) => {
-    return axios.post(env.API_URL + "/api/register", {
+    return axios.post(env.REACT_APP_API_URL + "/api/register", {
         email,
         password,
     });
@@ -10,7 +10,7 @@ const register = (email, password) => {
 
 const login = (email, password) => {
     return axios
-        .post(env.API_URL + "/api/login", {
+        .post(env.REACT_APP_API_URL + "/api/login", {
             "email": email,
             "password": password
         })
