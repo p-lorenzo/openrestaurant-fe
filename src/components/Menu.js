@@ -3,14 +3,13 @@ import axios from "axios";
 import MenuSection from "./MenuSection";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "../logo.svg";
-import env from "react-dotenv";
 import { withRouter } from "react-router";
 
 const Menu = () => {
     const [sections, setSections] = React.useState(null);
 
     React.useEffect(() => {
-        axios.get(env.REACT_APP_API_URL + "/api/menu/example").then((response) => {
+        axios.get(process.env.REACT_APP_API_URL + "/api/menu/example").then((response) => {
             setSections(response.data.sections);
         });
     }, []);
