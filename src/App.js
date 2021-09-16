@@ -66,7 +66,7 @@ const App = () => {
                 <Switch>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/dashboard" component={Dashboard}/>
-                    <Route exact path={["/", "/home", "/menu"]} component={Menu}/>
+                    <Route exact path="/" component={Menu}/>
                 </Switch>
             </Router>
         </div>
