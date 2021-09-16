@@ -16,6 +16,7 @@ const login = (email, password) => {
         .then((response) => {
             if (response.data.token) {
                 localStorage.setItem("user", JSON.stringify(response.data));
+                localStorage.setItem("token", response.data.token);
             }
 
             return response.data;
@@ -30,10 +31,15 @@ const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 };
 
+const getToken = () => {
+    return localStorage.getItem("token");
+}
+
 const authService = {
     register,
     login,
     logout,
     getCurrentUser,
+    getToken,
 };
 export default authService;
