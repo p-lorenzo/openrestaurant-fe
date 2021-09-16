@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 1rem;
 }
 
 code {
@@ -47,5 +46,9 @@ code {
   position: absolute;
   top: 2rem;
   right: 2rem;
+}
+
+.navbar{
+  margin-bottom: 1rem;
 }
 

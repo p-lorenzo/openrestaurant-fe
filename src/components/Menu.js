@@ -21,7 +21,7 @@ const Menu = () => {
     }
     
     return (
-        <div className="container">
+        <div>
             <section className="menu col-md-6 col-sm-12">
                 <img src={logo} className="menu-logo" alt="logo" />
                 {sections.map((section, index) => (
