@@ -5,6 +5,7 @@ import Menu from './components/Menu';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import MenuEntries from "./components/MenuEntries";
+import AddEntryForm from "./components/AddEntryForm";
 import authService from "./services/auth.service";
 
 
@@ -73,10 +74,11 @@ const App = () => {
                     )}
                 </nav>
                 <Switch>
-                    <Route exact path="/login" component={Login}/>
-                    <Route exact path="/dashboard" component={Dashboard}/>
-                    <Route exact path="/menu-entries" component={MenuEntries}/>
-                    <Route exact path="/" component={Menu}/>
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/menu-entries" component={MenuEntries} />
+                    <Route exact path="/new-menu-entry" component={AddEntryForm} />
+                    <Route exact path="/" component={Menu} />
                 </Switch>
             </Router>
         </div>

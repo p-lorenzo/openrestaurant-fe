@@ -3,7 +3,7 @@ import axios from "axios";
 import {withRouter} from "react-router";
 import {DataGrid} from "@mui/x-data-grid";
 
-const MenuEntries = () => {
+const MenuEntries = (props) => {
     const [menuEntries, setMenuEntries] = useState(null);
 
     React.useEffect(() => {
@@ -11,33 +11,18 @@ const MenuEntries = () => {
             setMenuEntries(response.data);
         });
     }, []);
+
+    const handleClick = () => {
+        props.history.push("/new-menu-entry");
+        window.location.reload();
+    };
+
     const columns = [
-        {field: 'id', headerName: 'ID', flex: 2},
-        {
-            field: 'name',
-            headerName: 'Nome',
-            editable: true,
-            flex: 2
-        },
-        {
-            field: 'description',
-            headerName: 'Descrizione',
-            editable: true,
-            flex: 3
-        },
-        {
-            field: 'price',
-            headerName: 'Prezzo',
-            type: 'number',
-            editable: true,
-            flex: 1
-        },
-        {
-            field: 'quantity',
-            headerName: 'Quantità',
-            editable: true,
-            flex: 1
-        },
+        { field: 'id', headerName: 'ID', flex: 2 },
+        { field: 'name', headerName: 'Nome', editable: true, flex: 2 },
+        { field: 'description', headerName: 'Descrizione', editable: true, flex: 3 },
+        { field: 'price', headerName: 'Prezzo', type: 'number', editable: true, flex: 1 },
+        { field: 'quantity', headerName: 'Quantità', editable: true, flex: 1 },
     ];
 
     if (!menuEntries) {
@@ -48,6 +33,7 @@ const MenuEntries = () => {
 
     return (
         <div>
+            <button className="btn btn-info" onClick={handleClick}>Nuova Pietanza</button>
             <section className="menu-entries">
                 <DataGrid
                     rows={menuEntries}
