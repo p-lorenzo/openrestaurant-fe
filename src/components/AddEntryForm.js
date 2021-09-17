@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import Select from "react-select";
 import axios from "axios";
 
 const required = (value) => {
@@ -15,7 +16,7 @@ const required = (value) => {
     }
 };
 
-const Login = (props) => {
+const AddEntryForm = (props) => {
     const form = useRef();
     const submitBtn = useRef();
 
@@ -23,8 +24,26 @@ const Login = (props) => {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0.0);
     const [quantity, setQuantity] = useState(0);
+    const [section, setSection] = useState("null");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
+    const [menuSections, setMenuSections] = useState(null);
+
+    React.useEffect(() => {
+        axios.get(process.env.REACT_APP_API_URL + "/api/admin/menu-section").then((response) => {
+            console.log(formatSections(response.data));
+            setMenuSections(formatSections(response.data));
+        });
+    }, []);
+
+    const formatSections = (sections) => {
+        return sections.map((section) => (
+            {
+                value: section.id,
+                label: section.title
+            }
+        ));
+    };
 
     const onChangeName = (e) => {
         const name = e.target.value;
@@ -47,6 +66,10 @@ const Login = (props) => {
         setQuantity(quantity);
     };
 
+    const onChangeSection = (selectedSection) => {
+        setSection(selectedSection);
+    };
+
     const addMenuEntry = (e) => {
         e.preventDefault();
 
@@ -57,10 +80,11 @@ const Login = (props) => {
 
         if (submitBtn.current.context._errors.length === 0) {
             axios.post(process.env.REACT_APP_API_URL + "/api/admin/menu-entry/add", {
-                "name": name ,
+                "name": name,
                 "description": description,
                 "price": price,
-                "quantity": quantity 
+                "quantity": quantity,
+                "section": section.value
             }).then(() => {
                 props.history.push("/menu-entries");
                 window.location.reload();
@@ -131,6 +155,16 @@ const Login = (props) => {
                 </div>
 
                 <div className="form-group">
+                    <label htmlFor="section">Sezione menu</label>
+                    <Select
+                        options={menuSections}
+                        name="section"
+                        value={section}
+                        onChange={onChangeSection}
+                    />
+                </div>
+
+                <div className="form-group">
                     <button className="btn btn-primary btn-block" disabled={loading}>
                         {loading && (
                             <span className="spinner-border spinner-border-sm"></span>
@@ -153,4 +187,4 @@ const Login = (props) => {
     );
 };
 
-export default withRouter(Login);
+export default withRouter(AddEntryForm);
