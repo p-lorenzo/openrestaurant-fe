@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import axios from "axios";
-import { withRouter } from "react-router";
-import { DataGrid } from "@mui/x-data-grid";
+import {withRouter} from "react-router";
+import {DataGrid} from "@mui/x-data-grid";
 import authService from "../services/auth.service";
 
 const MenuEntries = () => {
@@ -14,7 +14,7 @@ const MenuEntries = () => {
         });
     }, []);
     const columns = [
-        { field: 'id', headerName: 'ID', flex: 2 },
+        {field: 'id', headerName: 'ID', flex: 2},
         {
             field: 'name',
             headerName: 'Nome',

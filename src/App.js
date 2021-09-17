@@ -1,12 +1,11 @@
-import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from './components/Menu';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import MenuEntries from "./components/MenuEntries";
 import authService from "./services/auth.service";
-
 
 
 const App = () => {
@@ -74,10 +73,10 @@ const App = () => {
                     )}
                 </nav>
                 <Switch>
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/dashboard" component={Dashboard} />
-                    <Route exact path="/menu-entries" component={MenuEntries} />
-                    <Route exact path="/" component={Menu} />
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/dashboard" component={Dashboard}/>
+                    <Route exact path="/menu-entries" component={MenuEntries}/>
+                    <Route exact path="/" component={Menu}/>
                 </Switch>
             </Router>
         </div>

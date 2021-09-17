@@ -1,92 +1,92 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	monospace;
 }
 
 .menu {
-  padding: 2rem 2.25rem 1rem;
-  margin: 0 auto 1rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+	padding: 2rem 2.25rem 1rem;
+	margin: 0 auto 1rem;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
-.section-title{
-  text-align: center;
-  border-bottom: 1px solid black;
+.section-title {
+	text-align: center;
+	border-bottom: 1px solid black;
 }
 
-.menu-entry{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
+.menu-entry {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1.5rem;
 }
 
-.entry-description{
-  flex: 1 1 100%;
-  margin: 0.75rem 0 0;
+.entry-description {
+	flex: 1 1 100%;
+	margin: 0.75rem 0 0;
 }
 
-.menu-logo{
-  width: 180px;
-  margin: 0 auto 2rem;
-  display: block;
+.menu-logo {
+	width: 180px;
+	margin: 0 auto 2rem;
+	display: block;
 }
 
-.authentication{
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
+.authentication {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
 }
 
-.navbar{
-  margin-bottom: 1rem;
+.navbar {
+	margin-bottom: 1rem;
 }
 
 label {
-  display: block;
-  margin-top: 10px;
+	display: block;
+	margin-top: 10px;
 }
 
 .card-container.card {
-  max-width: 350px !important;
-  padding: 40px 40px;
+	max-width: 350px !important;
+	padding: 40px 40px;
 }
 
 .card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	background-color: #f7f7f7;
+	padding: 20px 25px 30px;
+	margin: 0 auto 25px;
+	margin-top: 50px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .profile-img-card {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 10px;
-  display: block;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 10px;
+	display: block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
 }
 
-.btn-block{
-  margin-top: 1rem;
-  width: 100%;
+.btn-block {
+	margin-top: 1rem;
+	width: 100%;
 }
 

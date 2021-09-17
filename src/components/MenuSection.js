@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MenuSection({ entries }) {
+export default function MenuSection({entries}) {
     return (
         <section className="menu-section">
             {Object.values(entries).map((entry, index) => (
