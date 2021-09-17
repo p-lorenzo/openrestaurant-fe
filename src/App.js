@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Link, Route, Switch} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from './components/Menu';
