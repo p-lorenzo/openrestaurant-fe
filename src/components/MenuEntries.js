@@ -2,11 +2,9 @@ import React, {useState} from "react";
 import axios from "axios";
 import {withRouter} from "react-router";
 import {DataGrid} from "@mui/x-data-grid";
-import authService from "../services/auth.service";
 
 const MenuEntries = () => {
     const [menuEntries, setMenuEntries] = useState(null);
-    axios.defaults.headers.common['X-AUTH-TOKEN'] = authService.getToken();
 
     React.useEffect(() => {
         axios.get(process.env.REACT_APP_API_URL + "/api/admin/menu-entry").then((response) => {
