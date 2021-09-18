@@ -12,9 +12,14 @@ const MenuSections = (props) => {
         { field: 'sorting', headerName: 'Ordinamento', editable: true, flex: 1, type: 'number' },
         {
             field: 'id', headerName: ' ', flex: 1, renderCell: (params: GridRenderCellParams) => (
-                <Link to={"/menu-section-edit/"+params.value} className="btn btn-info">
-                    Edit
-                </Link>
+                <div className="btn-group">
+                    <Link to={"/menu-section-edit/" + params.value} className="btn btn-info">
+                        Edit
+                    </Link>
+                    <button data-id={params.value} className="btn btn-danger" onClick={(e) => { handleDelete(e) }}>
+                        Elimina
+                    </button>
+                </div>
             ),
         }
     ];
@@ -28,6 +33,15 @@ const MenuSections = (props) => {
     const handleClick = () => {
         props.history.push("/new-menu-section");
         window.location.reload();
+    };
+
+    const handleDelete = (e) => {
+        axios.delete(process.env.REACT_APP_API_URL + "/api/admin/menu-section/delete/" + e.target.attributes["data-id"].nodeValue);
+        let rows = [...sections];
+        rows.splice(rows.findIndex(function (i) {
+            return i.id === e.target.attributes["data-id"].nodeValue;
+        }), 1);
+        setSections(rows);
     };
 
     if (!sections) {
