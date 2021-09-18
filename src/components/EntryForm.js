@@ -25,7 +25,7 @@ const EntryForm = (props) => {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0.0);
     const [quantity, setQuantity] = useState(0);
-    const [section, setSection] = useState("null");
+    const [section, setSection] = useState("");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     const [menuSections, setMenuSections] = useState(null);
@@ -43,6 +43,10 @@ const EntryForm = (props) => {
                 setDescription(response.data.description);
                 setPrice(response.data.price);
                 setQuantity(response.data.quantity);
+                setSection({
+                    "value": response.data.menuSection.id,
+                    "label": response.data.menuSection.title,
+                })
             });
             setPostUrl("/api/admin/menu-entry/update/" + props.match.params.value);
         }
