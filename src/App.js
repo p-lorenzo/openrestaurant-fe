@@ -1,5 +1,5 @@
-import {HashRouter as Router, Link, Route, Switch} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import { HashRouter as Router, Link, Route, Switch } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from './components/Menu';
 import Login from './components/Login';
@@ -7,6 +7,8 @@ import Dashboard from './components/Dashboard';
 import MenuEntries from "./components/MenuEntries";
 import AddEntryForm from "./components/AddEntryForm";
 import authService from "./services/auth.service";
+import MenuSections from "./components/MenuSections";
+import MenuSectionForm from "./components/MenuSectionForm";
 
 
 const App = () => {
@@ -45,6 +47,13 @@ const App = () => {
                                 </Link>
                             </li>
                         )}
+                        {showAdminDashboard && (
+                            <li className="nav-item">
+                                <Link to={"/menu-sections"} className="nav-link">
+                                    Gestisci sezioni menu
+                                </Link>
+                            </li>
+                        )}
                     </div>
                     {currentUser ? (
                         <div className="navbar-nav ml-auto">
@@ -78,6 +87,8 @@ const App = () => {
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/menu-entries" component={MenuEntries} />
                     <Route exact path="/new-menu-entry" component={AddEntryForm} />
+                    <Route exact path="/menu-sections" component={MenuSections} />
+                    <Route exact path="/menu-section-edit/:value" component={MenuSectionForm} />
                     <Route exact path="/" component={Menu} />
                 </Switch>
             </Router>
