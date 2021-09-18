@@ -84,7 +84,7 @@ const AddEntryForm = (props) => {
                 "description": description,
                 "price": price,
                 "quantity": quantity,
-                "section": section.value
+                "menuSectionId": section.value
             }).then(() => {
                 props.history.push("/menu-entries");
                 window.location.reload();
