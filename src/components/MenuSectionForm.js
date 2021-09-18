@@ -19,16 +19,21 @@ const MenuSectionForm = (props) => {
     const form = useRef();
     const submitBtn = useRef();
 
+    const [postUrl, setPostUrl] = useState("/api/admin/menu-section/add");
     const [title, setTitle] = useState("");
     const [sorting, setSorting] = useState("");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
     React.useEffect(() => {
-        axios.get(process.env.REACT_APP_API_URL + "/api/admin/menu-section/" + props.match.params.value).then((response) => {
-            setTitle(response.data.title);
-            setSorting(response.data.sorting);
-        });
+        if (props.match.params.value) {
+            axios.get(process.env.REACT_APP_API_URL + "/api/admin/menu-section/" + props.match.params.value).then((response) => {
+                setTitle(response.data.title);
+                setSorting(response.data.sorting);
+            });
+            setPostUrl("/api/admin/menu-section/update/" + props.match.params.value);
+        }
+        
     }, [props]);
 
     const onChangeTitle = (e) => {
@@ -50,7 +55,7 @@ const MenuSectionForm = (props) => {
         form.current.validateAll();
 
         if (submitBtn.current.context._errors.length === 0) {
-            axios.post(process.env.REACT_APP_API_URL + "/api/admin/menu-section/update/" + props.match.params.value, {
+            axios.post(process.env.REACT_APP_API_URL + postUrl, {
                 "title": title,
                 "sorting" : sorting,
             }).then(() => {
@@ -90,7 +95,7 @@ const MenuSectionForm = (props) => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="description">Descrizione</label>
+                    <label htmlFor="sorting">Ordinamento</label>
                     <Input
                         type="number"
                         className="form-control"

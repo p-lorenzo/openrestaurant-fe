@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import {withRouter} from "react-router";
-import {DataGrid} from "@mui/x-data-grid";
+import { withRouter, Link } from "react-router-dom";
+import { DataGrid } from "@mui/x-data-grid";
 
 const MenuEntries = (props) => {
     const [menuEntries, setMenuEntries] = useState(null);
@@ -18,11 +18,17 @@ const MenuEntries = (props) => {
     };
 
     const columns = [
-        { field: 'id', headerName: 'ID', flex: 2 },
         { field: 'name', headerName: 'Nome', editable: true, flex: 2 },
         { field: 'description', headerName: 'Descrizione', editable: true, flex: 3 },
         { field: 'price', headerName: 'Prezzo', type: 'number', editable: true, flex: 1 },
-        { field: 'quantity', headerName: 'Quantità', editable: true, flex: 1, type: 'number'  },
+        { field: 'quantity', headerName: 'Quantità', editable: true, flex: 1, type: 'number' },
+        {
+            field: 'id', headerName: ' ', flex: 1, renderCell: (params: GridRenderCellParams) => (
+                <Link to={"/menu-entry-edit/" + params.value} className="btn btn-info">
+                    Edit
+                </Link>
+            ),
+        }
     ];
 
     if (!menuEntries) {

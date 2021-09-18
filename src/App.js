@@ -5,7 +5,7 @@ import Menu from './components/Menu';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import MenuEntries from "./components/MenuEntries";
-import AddEntryForm from "./components/AddEntryForm";
+import EntryForm from "./components/EntryForm";
 import authService from "./services/auth.service";
 import MenuSections from "./components/MenuSections";
 import MenuSectionForm from "./components/MenuSectionForm";
@@ -86,9 +86,9 @@ const App = () => {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/menu-entries" component={MenuEntries} />
-                    <Route exact path="/new-menu-entry" component={AddEntryForm} />
+                    <Route exact path={["/new-menu-entry", "/menu-entry-edit/:value"]} component={EntryForm} />
                     <Route exact path="/menu-sections" component={MenuSections} />
-                    <Route exact path="/menu-section-edit/:value" component={MenuSectionForm} />
+                    <Route exact path={["/new-menu-section", "/menu-section-edit/:value"]} component={MenuSectionForm} />
                     <Route exact path="/" component={Menu} />
                 </Switch>
             </Router>

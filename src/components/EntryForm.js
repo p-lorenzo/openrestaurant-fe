@@ -16,10 +16,11 @@ const required = (value) => {
     }
 };
 
-const AddEntryForm = (props) => {
+const EntryForm = (props) => {
     const form = useRef();
     const submitBtn = useRef();
 
+    const [postUrl, setPostUrl] = useState("/api/admin/menu-entry/add");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0.0);
@@ -34,7 +35,18 @@ const AddEntryForm = (props) => {
             console.log(formatSections(response.data));
             setMenuSections(formatSections(response.data));
         });
-    }, []);
+
+        if (props.match.params.value) {
+            
+            axios.get(process.env.REACT_APP_API_URL + "/api/admin/menu-entry/" + props.match.params.value).then((response) => {
+                setName(response.data.name);
+                setDescription(response.data.description);
+                setPrice(response.data.price);
+                setQuantity(response.data.quantity);
+            });
+            setPostUrl("/api/admin/menu-entry/update/" + props.match.params.value);
+        }
+    }, [props]);
 
     const formatSections = (sections) => {
         return sections.map((section) => (
@@ -79,7 +91,7 @@ const AddEntryForm = (props) => {
         form.current.validateAll();
 
         if (submitBtn.current.context._errors.length === 0) {
-            axios.post(process.env.REACT_APP_API_URL + "/api/admin/menu-entry/add", {
+            axios.post(process.env.REACT_APP_API_URL + postUrl, {
                 "name": name,
                 "description": description,
                 "price": price,
@@ -187,4 +199,4 @@ const AddEntryForm = (props) => {
     );
 };
 
-export default withRouter(AddEntryForm);
+export default withRouter(EntryForm);

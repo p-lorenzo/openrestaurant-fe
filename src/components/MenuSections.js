@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import { DataGrid, GridRenderCellParams } from "@mui/x-data-grid";
 
 
-const MenuSections = () => {
+const MenuSections = (props) => {
     const [sections, setSections] = useState(null);
 
     const columns = [
@@ -25,6 +25,11 @@ const MenuSections = () => {
         });
     }, []);
 
+    const handleClick = () => {
+        props.history.push("/new-menu-section");
+        window.location.reload();
+    };
+
     if (!sections) {
         return (
             <h1>Nessuna sezione disponibile.</h1>
@@ -33,6 +38,7 @@ const MenuSections = () => {
 
     return (
         <div>
+            <button className="btn btn-info" onClick={handleClick}>Nuova Sezione</button>
             <section className="menu-sections">
                 <DataGrid
                     editMode="row"
