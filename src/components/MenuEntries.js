@@ -22,7 +22,7 @@ const MenuEntries = (props) => {
         { field: 'name', headerName: 'Nome', editable: true, flex: 2 },
         { field: 'description', headerName: 'Descrizione', editable: true, flex: 3 },
         { field: 'price', headerName: 'Prezzo', type: 'number', editable: true, flex: 1 },
-        { field: 'quantity', headerName: 'Quantità', editable: true, flex: 1 },
+        { field: 'quantity', headerName: 'Quantità', editable: true, flex: 1, type: 'number'  },
     ];
 
     if (!menuEntries) {
