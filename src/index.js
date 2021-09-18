@@ -8,7 +8,6 @@ import authService from "./services/auth.service";
 
 axios.interceptors.request.use(
     request => {
-        console.log(request.url.includes('admin'));
         if (request.url.includes('admin')) {
             request.headers['X-AUTH-TOKEN'] = authService.getToken();
         }
