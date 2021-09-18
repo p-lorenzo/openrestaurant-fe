@@ -9,7 +9,7 @@ const Menu = () => {
     const [sections, setSections] = React.useState(null);
 
     React.useEffect(() => {
-        axios.get(process.env.REACT_APP_API_URL + "/api/menu/example").then((response) => {
+        axios.get(process.env.REACT_APP_API_URL + "/api/menu/active").then((response) => {
             setSections(response.data.sections);
         });
     }, []);
