@@ -83,7 +83,7 @@ const MenuSectionForm = (props) => {
         <div className="col-md-12">
             <Form onSubmit={MenuSectionEdit} ref={form}>
                 <div className="form-group">
-                    <label htmlFor="name">Nome Pietanza</label>
+                    <label htmlFor="name">Nome sezione menu</label>
                     <Input
                         type="text"
                         className="form-control"
